@@ -47,6 +47,10 @@ public class Cart {
 
     }
 
+    public Map<String, Integer> getProducts() {
+        return products;
+    }
+
     public void removeItem(InventoryItem item, int qty) {
         //current will store the VALUE of key-value
         int current = products.get(item.getProduct().sku());

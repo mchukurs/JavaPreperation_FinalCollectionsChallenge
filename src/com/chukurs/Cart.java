@@ -4,9 +4,10 @@ import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 
-enum CartType {PHYSICAL, VIRTUAL};
+
 
 public class Cart {
+    enum CartType {PHYSICAL, VIRTUAL};
     //it belongs to class, so can be used as bases for generation
     private static int lastId = 1;
 
@@ -57,8 +58,6 @@ public class Cart {
         } else {
             products.merge(item.getProduct().sku(), qty, (oldVal, newVal) -> oldVal - newVal);
             System.out.printf("%d [%s]s removed %n", qty, item.getProduct().name());
-
-            products.replace(String.valueOf(current), products.get(current), products.get(current) - qty);
         }
 
         item.releaseItem(qty);
